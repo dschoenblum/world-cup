@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>World Cup 2026 Tracker</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script>
+    // Apply saved theme immediately to prevent flash
+    (function() {
+      var t = localStorage.getItem('theme');
+      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      // Apply saved spoiler mode (default: hidden)
+      if (localStorage.getItem('spoilers') !== 'show') document.documentElement.classList.add('no-spoilers');
+    })();
+  </script>
+</head>
+<body>
+
+<header>
+  <div class="logo">FIFA World Cup <span>2026</span></div>
+  <nav>
+    <a href="#games" class="active">Matches</a>
+    <a href="#standings">Standings</a>
+    <a href="#bracket">Bracket</a>
+  </nav>
+  <div class="header-actions">
+    <span id="last-updated" class="last-updated"></span>
+    <button id="refresh-btn" class="refresh-btn">Refresh</button>
+    <button id="spoiler-btn" class="spoiler-btn" title="Show scores" aria-label="Toggle scores"></button>
+    <button id="theme-btn" class="theme-btn" title="Toggle theme" aria-label="Toggle theme"></button>
+  </div>
+</header>
+
+<main>
+  <section class="view active" id="games-view">
+    <div class="loading-msg">Loading matches…</div>
+  </section>
+  <section class="view" id="standings-view">
+    <div class="loading-msg">Loading standings…</div>
+  </section>
+  <section class="view" id="bracket-view">
+    <div class="loading-msg">Loading bracket…</div>
+  </section>
+</main>
+
+<script src="js/data.js"></script>
+<script src="js/api.js"></script>
+<script src="js/games.js"></script>
+<script src="js/standings.js"></script>
+<script src="js/bracket.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
